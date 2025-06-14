@@ -1,0 +1,93 @@
+<br/>
+<p-button label="Nuevo Cliente" icon="pi pi-plus" (click)="openNew()" styleClass="p-button-success mb-3"></p-button>
+
+<p-table [value]="clientes">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Género</th>
+      <th>Ubicación</th>
+      <th>Nivel Socioeconómico</th>
+      <th>Profesión</th>
+      <th>Educación</th>
+      <th>Historial</th>
+      <th>Ingresos</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td>{{ row.nombre }}</td>
+      <td>{{ row.edad }}</td>
+      <td>{{ row.genero }}</td>
+      <td>{{ row.ubicacion }}</td>
+      <td>{{ row.nivel_socioeconomico }}</td>
+      <td>{{ row.profesion }}</td>
+      <td>{{ row.nivel_educativo }}</td>
+      <td>{{ row.historial_crediticio }}</td>
+      <td>{{ row.ingresos }}</td>
+      <td>
+        <button pButton icon="pi pi-pencil" (click)="editCliente(row)" class="p-button-sm mr-2"></button>
+        <button pButton icon="pi pi-trash" (click)="deleteClienteConfirm(row)" class="p-button-danger p-button-sm"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Cliente" [(visible)]="clienteDialog" [modal]="true" [style]="{width: '500px'}">
+  <div class="p-fluid">
+
+      <div class="p-field">
+      <label for="nombre">Nombre</label>
+      <input pInputText id="nombre" name="nombre" [(ngModel)]="cliente.nombre" />
+    </div>
+
+    <div class="p-field">
+      <label for="edad">Edad</label>
+      <input pInputText id="edad" name="edad" type="number" [(ngModel)]="cliente.edad" />
+    </div>
+
+    <div class="p-field">
+      <label for="genero">Género</label>
+      <input pInputText id="genero" name="genero" [(ngModel)]="cliente.genero" />
+    </div>
+
+    <div class="p-field">
+      <label for="ubicacion">Ubicación</label>
+      <input pInputText id="ubicacion" name="ubicacion" [(ngModel)]="cliente.ubicacion" />
+    </div>
+
+    <div class="p-field">
+      <label for="nivel_socioeconomico">Nivel Socioeconómico</label>
+      <input pInputText id="nivel_socioeconomico" name="nivel_socioeconomico" [(ngModel)]="cliente.nivel_socioeconomico" />
+    </div>
+
+    <div class="p-field">
+      <label for="profesion">Profesión</label>
+      <input pInputText id="profesion" name="profesion" [(ngModel)]="cliente.profesion" />
+    </div>
+
+    <div class="p-field">
+      <label for="nivel_educativo">Nivel Educativo</label>
+      <input pInputText id="nivel_educativo" name="nivel_educativo" [(ngModel)]="cliente.nivel_educativo" />
+    </div>
+
+    <div class="p-field">
+      <label for="historial_crediticio">Historial Crediticio</label>
+      <input pInputText id="historial_crediticio" name="historial_crediticio" type="number" [(ngModel)]="cliente.historial_crediticio" />
+    </div>
+
+    <div class="p-field">
+      <label for="ingresos">Ingresos</label>
+      <input pInputText id="ingresos" name="ingresos" type="number" [(ngModel)]="cliente.ingresos" />
+    </div>
+
+
+  </div>
+  <p-footer>
+    <button pButton label="Guardar" icon="pi pi-check" (click)="saveCliente()" autofocus></button>
+  </p-footer>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>

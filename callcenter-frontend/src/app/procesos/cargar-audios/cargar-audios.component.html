@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantalla Carga de Audios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen py-10">
+
+
+      
+  <!-- Grid de 12 columnas -->
+  <div class="grid grid-cols-12 gap-4 px-6">
+
+
+    <!-- Espacio izquierdo -->
+    <div class="col-span-2"></div>
+
+    <!-- Título principal centrado sobre las secciones -->
+    <div class="col-span-8 mb-4">
+      <h1 class="text-2xl font-bold text-center text-gray-800 flex items-center justify-left">
+          <i class="fas fa-upload mr-2"></i> Carga y Procesamiento de Audios
+      </h1>
+       <!-- Línea alineada a la izquierda -->
+      <div class="w-200 h-1 bg-gray-300 mt-2 rounded"></div>
+    </div>
+
+
+
+    <!-- Espacio derecho -->
+    <div class="col-span-2"></div>
+
+
+
+
+
+
+    <!-- Col-2 vacía -->
+    <div class="col-span-2"></div>
+
+    <!-- Col-5: Sección izquierda - carga de audios -->
+ <!-- Título con fondo azul y letras blancas -->
+  
+  <div class="col-span-5 rounded-xl shadow border border-gray-300 overflow-hidden w-full">
+  <div class="bg-blue-500 text-white text-lg font-semibold px-4 py-2">
+    Cargar Archivos de Audio
+  </div>
+
+      <div class="p-4 text-gray-800 text-sm space-y-3 bg-white">
+
+      <label class="block mb-4">
+        <span class="text-black">Selecciona archivos (.mp3, .wav):</span>
+        <input type="file" multiple accept=".mp3,.wav" class="mt-2 block w-full border border-gray-300 rounded px-4 py-2" />
+      </label>
+
+      <div class="mt-4">
+        <p class="text-gray-600 font-medium mb-2">Archivos seleccionados:</p>
+        <ul class="list-disc list-inside text-black">
+          <li>audio1.mp3</li>
+          <li>cliente_voz.wav</li>
+        </ul>
+      </div>
+
+      <button class="mt-6 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+        Subir Archivos
+      </button>
+      </div>
+    </div>
+
+    <!-- Col-3: Sección derecha con dos bloques -->
+    <div class="col-span-3 flex flex-col gap-6">
+
+      <!-- Información del procesamiento -->
+
+    <div class="rounded-xl shadow border border-gray-300">
+  <!-- SOLO TÍTULO con fondo verde petróleo y texto blanco -->
+  <div class="bg-teal-700 text-white text-lg font-semibold px-4 py-2 rounded-t-xl">
+    Información del Procesamiento
+  </div>
+
+
+    <div class="p-4 text-gray-800 text-sm space-y-3 bg-white">
+    <div>
+      <span class="font-medium text-gray-700">Modelo de Machine Learning:</span><br>
+      Random Forest Classifier
+    </div>
+
+    <div>
+      <span class="font-medium text-gray-700">Características analizadas:</span>
+      <ul class="list-disc list-inside pl-2">
+        <li>Frecuencia fundamental</li>
+        <li>Intensidad de voz</li>
+        <li>Velocidad de habla</li>
+        <li>Pausas y silencios</li>
+        <li>Variaciones tonales</li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="font-medium text-gray-700">Tiempo estimado:</span><br>
+      ~2-3 minutos por archivo
+    </div>
+  </div>
+</div>
+
+
+
+
+      <!-- Estadísticas -->
+      <div class="bg-white rounded-xl shadow p-4">
+        <h3 class="text-lg font-semibold text-purple-600 border-b border-purple-400 pb-2 mb-2">
+          Estadísticas de Procesamiento
+        </h3>
+        <table class="w-full text-sm text-left text-gray-700 border">
+          <thead class="bg-green-500 text-white">
+            <tr>
+              <th class="px-3 py-2">Métrica</th>
+              <th class="px-3 py-2">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="px-3 py-2">Total Archivos</td>
+              <td class="px-3 py-2">12</td>
+            </tr>
+            <tr class="border-t">
+              <td class="px-3 py-2">Procesados</td>
+              <td class="px-3 py-2">8</td>
+            </tr>
+            <tr class="border-t">
+              <td class="px-3 py-2">Pendientes</td>
+              <td class="px-3 py-2">4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Col-2 vacía -->
+    <div class="col-span-2"></div>
+
+  </div>
+
+</body>
+</html>

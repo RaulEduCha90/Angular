@@ -1,0 +1,13 @@
+nav {
+  .nav-link {
+    @apply flex items-center py-2 text-white hover:text-yellow-400;
+
+    i {
+      @apply mr-1;
+    }
+  }
+
+  .logo {
+    @apply flex items-center space-x-2 text-yellow-400;
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantalla Carga de Audios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen py-10">
+
+
+
+    <!-- Grid de 12 columnas -->
+    <div class="grid grid-cols-12 gap-4 px-6">
+
+
+    <!-- Espacio izquierdo -->
+    <div class="col-span-2"></div>
+
+    <!-- Título principal centrado sobre las secciones -->
+    <div class="col-span-8 mb-4">
+      <h1 class="text-2xl font-bold text-center text-gray-800 flex items-center justify-left">
+          <i class="fas fa-cogs mr-2"></i> Gestión de Métricas (CRUD)
+      </h1>
+       <!-- Línea alineada a la izquierda -->
+      <div class="w-200 h-1 bg-gray-300 mt-2 rounded"></div>
+    </div>
+
+    <!-- Espacio derecho -->
+    <div class="col-span-2"></div>
+
+
+
+    <!-- Col-2 vacía -->
+    <div class="col-span-2"></div>
+
+  <div class="col-span-5 rounded-xl shadow border border-gray-300 overflow-hidden w-full">
+  <div class="bg-blue-500 text-white text-lg font-semibold px-4 py-2">
+    Lista de Métricas
+  </div>
+
+  <div class="layout">
+    <div class="lista-metricas">
+    
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Nombre</th>
+            <th>Descripción</th>
+            <th>Peso (%)</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let metrica of metricas">
+            <td>{{ metrica.id }}</td>
+            <td>{{ metrica.nombre }}</td>
+            <td>{{ metrica.descripcion }}</td>
+            <td>{{ metrica.peso }}</td>
+            <td>
+              <span [ngClass]="{'activo': metrica.estado === 'Activo', 'inactivo': metrica.estado !== 'Activo'}">
+                {{ metrica.estado }}
+              </span>
+            </td>
+            <td>
+              <button class="editar"><i class="pi pi-pencil"></i></button>
+              <button class="eliminar"><i class="pi pi-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+
+ <div class="col-span-3 rounded-xl shadow border border-gray-300 overflow-hidden w-full">
+
+    <div class="formulario">
+      <h3>Crear/Editar Métrica</h3>
+      <form [formGroup]="formMetrica">
+        <label>Nombre de la Métrica:</label>
+        <input formControlName="nombre" />
+
+        <label>Descripción:</label>
+        <textarea formControlName="descripcion"></textarea>
+
+        <label>Peso (%):</label>
+        <input type="number" formControlName="peso" />
+
+        <label>Estado:</label>
+        <select formControlName="estado">
+          <option>Activo</option>
+          <option>Inactivo</option>
+        </select>
+
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Col-2 vacía -->
+    <div class="col-span-2"></div>
+
+</div>
+
+
+
+</body>
+
+</html>

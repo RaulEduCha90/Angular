@@ -1,0 +1,55 @@
+<br/>
+<p-button label="Nuevo Agente" icon="pi pi-plus" (click)="openNew()" styleClass="p-button-success mb-3"></p-button>
+
+<p-table [value]="agentes">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Habilidades</th>
+      <th>Turno</th>
+
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-row>
+    <tr>
+      <td>{{ row.nombre }}</td>
+      <td>{{ row.habilidades }}</td>
+      <td>{{ row.turno }}</td>
+    
+      <td>
+        <button pButton icon="pi pi-pencil" (click)="editAgente(row)" class="p-button-sm mr-2"></button>
+        <button pButton icon="pi pi-trash" (click)="deleteAgenteConfirm(row)" class="p-button-danger p-button-sm"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Agente" [(visible)]="agenteDialog" [modal]="true" [style]="{width: '500px'}">
+  <div class="p-fluid">
+
+      <div class="p-field">
+      <label for="nombre">Nombre</label>
+      <input pInputText id="nombre" name="nombre" [(ngModel)]="agente.nombre" />
+    </div>
+
+    <div class="p-field">
+      <label for="habilidades">Habilidades</label>
+      <input pInputText id="habilidades" name="habilidades" type="text" [(ngModel)]="agente.habilidades" />
+    </div>
+
+    <div class="p-field">
+      <label for="turno">Turno</label>
+      <input pInputText id="turno" name="turno" [(ngModel)]="agente.turno" />
+    </div>
+
+   
+
+
+  </div>
+  <p-footer>
+    <button pButton label="Guardar" icon="pi pi-check" (click)="saveAgente()" autofocus></button>
+  </p-footer>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>
